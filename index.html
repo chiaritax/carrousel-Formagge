@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrousel</title>
+</head>
+   
+ <style>
+
+
+.carousel {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+h3 {
+    color: #707070;
+    margin-bottom: 0;
+}
+
+.brush {
+    width: 180px;
+}
+
+ul.slides {
+  display: block;
+  position: relative;
+  height: 600px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  list-style: none;
+}
+
+.slides * {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.clients {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.clients-container {
+    display: flex;
+    margin: 10px 0;
+}
+
+.client {
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  border-radius: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.client img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 85px;
+}
+
+.card img {
+  width: 200px;
+  height: 200px;
+}
+
+ul.slides input {
+  display: none;
+}
+
+.slide-container {
+  display: flex;
+  justify-content: center;
+}
+
+.slide-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 80%;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  font-size: 100px;
+  line-height: 570px;
+  color: #000;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.carousel-controls label {
+  display: none;
+  position: absolute;
+  padding: 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+.carousel-controls label {
+  opacity: 1;
+}
+
+.carousel-controls .prev-slide {
+  width: 49%;
+  text-align: left;
+  left: 0;
+}
+
+.carousel-controls .next-slide {
+  width: 49%;
+  text-align: right;
+  right: 0;
+}
+
+.carousel-controls .next-slide img {
+  transform: rotate(180deg);
+}
+
+.carousel-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 999;
+  text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000;
+  opacity: 0.5;
+  margin: 10px;
+}
+
+input:checked + .slide-container .slide-image {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.7s ease-in-out;
+}
+
+input:checked + .slide-container .carousel-controls label {
+  display: block;
+}
+
+input#img-1:checked ~ .carousel-dots label#img-dot-1,
+input#img-2:checked ~ .carousel-dots label#img-dot-2,
+input#img-3:checked ~ .carousel-dots label#img-dot-3,
+input#img-4:checked ~ .carousel-dots label#img-dot-4,
+input#img-5:checked ~ .carousel-dots label#img-dot-5,
+input#img-6:checked ~ .carousel-dots label#img-dot-6,
+input#img-7:checked ~ .carousel-dots label#img-dot-7 {
+  opacity: 1;
+}
+
+input:checked + .slide-container .nav label {
+  display: block;
+}
+
+@media screen and (max-width: 900px) {
+  .carousel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 675px) {
+  .carousel {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .carousel-controls label span img{
+   width: 25%;
+  }
+}
+
+ </style>
+
+    <div class="carousel">
+        <ul class="slides">
+            <input type="radio" name="radio-buttons" id="img-1" checked />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/dandy.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/Kansas.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/logo-1000 rosa negra2.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/Piegari.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/logo_tea.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/LE-BLE.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Restaurantes</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-3" class="prev-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                    <label for="img-2" class="next-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-2" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/Logo_cervecería_A.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/Logo_cervecería_T.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/Logo_cervecería_P.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/Logo_cervecería_ED.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/Perez-h.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Cervecerías</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-1" class="prev-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                    <label for="img-3" class="next-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-3" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/deandenys.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/williamsburg.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/desembarco.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/deniro_logo_menu1.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Cervecerías</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-2" class="prev-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                    <label for="img-4" class="next-slide">
+                        <span><img src="/FORMAGGE_arrow_clientes.webp" alt=""></span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-4" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/Cuatro quesos.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/bodegasamparo1.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/Fresco_Batata.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/parmeggiano.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Fiambrerias</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-3" class="prev-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                    <label for="img-5" class="next-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-5" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/cabaniajuramento1.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/biffe.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/logo1.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/T-bone.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Carnicerias</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-4" class="prev-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                    <label for="img-6" class="next-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-6" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/LAJUVENIL.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/milena.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Fabrica de Pastas</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-5" class="prev-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                    <label for="img-7" class="next-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                </div>
+            </li>
+            <input type="radio" name="radio-buttons" id="img-7" />
+            <li class="slide-container">
+                <div class="slide-image">
+                    <div class="clients">
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/MIGUSTO.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/LOCOSXLAPIZA.webp" alt="">
+                            </div>
+                        </div>
+                        <div class="clients-container">
+                            <div class="client">
+                                <img src="/Clientes/drpapa.webp" alt="">
+                            </div>
+                            <div class="client">
+                                <img src="/Clientes/malditotano.webp" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Pizzerias</h3>
+                    <img class="brush" src="/FORMAGGE_brushpencil.webp" alt="">
+                </div>
+                <div class="carousel-controls">
+                    <label for="img-6" class="prev-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                    <label for="img-1" class="next-slide">
+                        <span>
+                            <img src="/FORMAGGE_arrow_clientes.webp" alt="">
+                        </span>
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <img link="" alt="">
